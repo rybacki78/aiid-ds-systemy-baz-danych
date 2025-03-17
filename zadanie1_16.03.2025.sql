@@ -1,3 +1,5 @@
+-- DELETE, INSERT, UPDATE
+
 delete from regions;
 delete from jobs;
 
