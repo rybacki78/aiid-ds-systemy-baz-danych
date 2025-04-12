@@ -94,13 +94,3 @@ select first_name,
   from employees
  order by hire_date
  fetch first 5 rows with ties;
-
--- 5g
-select count(department_id) as number_of_departments
-  from departments;
-
--- 5h
-select job_id,
-       min_salary,
-       max_salary
-  from jobs;
