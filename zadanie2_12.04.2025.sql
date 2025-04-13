@@ -30,16 +30,13 @@ select d.department_name,
        sum(e.salary) as suma_zarobkow,
        round(
           avg(e.salary),
-          0
+          2
        ) as srednia_zarobkow
   from departments d
  inner join employees e
 on d.department_id = e.department_id
- inner join jobs j
-on e.job_id = j.job_id
-having j.min_salary > 5000
- group by d.department_name,
-          j.min_salary;
+ group by d.department_name
+having min(salary) > 5000;
 
 
 
@@ -52,6 +49,7 @@ select e.first_name,
        || ' '
        || ee.last_name as wspolpracownik
   from employees e
-  join employees ee
+  left outer join employees ee
 on e.department_id = ee.department_id
+   and e.employee_id != ee.employee_id
  where e.first_name = 'Jennifer';
